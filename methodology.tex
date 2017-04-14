@@ -3,6 +3,38 @@
 \label{sec:methodology}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Continous Energy Calculations with OpenMC}
+\label{subsec:openmc}
+
+-OpenMC~\cite{romano2013openmc}
+-Python API~\cite{boyd2016bigdata}
+-NNDC data~\cite{nndc2016endf}
+-distribcell tallies~\cite{lax2014distribcell}
+-\texttt{openmc.mgxs}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Multi-Group Calculations with OpenMOC}
+\label{subsec:openmoc}
+
+-OpenMOC~\cite{boyd2014openmoc}
+-multi-core parallelism~\cite{boyd2016parallel}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Spatial Homogenization Schemes}
+\label{subsec:homogenize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Null Homogenization}
+\label{subsubsec:homogenize-null}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Degenerate Homogenization}
+\label{subsubsec:homogenize-degenerate}
+
+-OpenCG region differentiation~\cite{boyd2015opencg}
+
 %\begin{dmath}
 %\label{eqn:test-source-ce}
 %Q(\mathbf{r},\mathbf{\Omega},E) = \frac{1}{4\pi} \frac{\Sigma_{p}(\mathbf{r})}{E}
@@ -24,20 +56,3 @@
 %  \bottomrule
 %\end{tabular}
 %\end{table}
-%
-%\begin{figure}[h!]
-%\centering
-%\begin{subfigure}{.25\textwidth}
-%  \includegraphics[width=0.9\linewidth]{figures/pin-cell-simple}
-%  \caption{}
-%  \label{fig:pin-materials}
-%\end{subfigure}%
-%\begin{subfigure}{.25\textwidth}
-%  \centering
-%  \includegraphics[width=0.9\linewidth]{figures/pin-cell-16x1}
-%  \caption{}
-%  \label{fig:pin-rings}
-%\end{subfigure}
-%\caption{The PWR fuel pin cell materials (a) and MGXS spatial homogenization zones (b) for the second test case benchmark.}
-%\label{fig:pin-cell}
-%\end{figure}

@@ -1,3 +1,7 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OPENMC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 @article{romano2013openmc,
   title = {{The OpenMC Monte Carlo Particle Transport Code}},
   author = {Romano, Paul K and Forget, Benoit},
@@ -6,6 +10,33 @@
   pages = "274--281",
   year = 2013
 }
+
+@inproceedings{boyd2016bigdata,
+  title = {{Equipping OpenMC for the Big Data Era}},
+  author = {Boyd, William and Romano, Paul K and Harper, Sterling},
+  booktitle = "PHYSOR",
+  address = "Sun Valley, ID, USA",
+  year = 2016
+}
+
+@misc{nndc2016endf,
+  author = {{National Nuclear Data Center, Brookhaven National Laboratory}},
+  title = {{ENDF/B-VII.1 Evaluated Nuclear Data Library}},
+  howpublished = {\url{http://www.nndc.bnl.gov/endf/b7.1/}},
+  note = {Accessed: 2016-08-09}
+}
+
+@inproceedings{lax2014distribcell,
+  title = {{An Algorithm for Identifying Unique Regions in Constructive Solid Geometries}},
+  author = "D. Lax and W. Boyd and N. Horelik",
+  booktitle = "PHYSOR",
+  address = "Kyoto, Japan",
+  year = 2014
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OPENMOC
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 @article{boyd2014openmoc,
   title = {{The OpenMOC Method of Characteristics Neutral Particle Transport Code}},
@@ -16,6 +47,29 @@
   year = 2014
 }
 
+@article{boyd2016parallel,
+  title = {{Parallel Performance Results for the OpenMOC Neutron Transport Code on Multicore Platforms}},
+  author = {Boyd, William and Siegel, Andrew and He, Shuo and Forget, Benoit and Smith, Kord},
+  journal = {Int'l Journ. of High Performance Computing Applications},
+  year = 2016
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OPENCG
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@inproceedings{boyd2015opencg,
+  title = {{OpenCG: A Combinatorial Geometry Modeling Tool for Data Processing and Code Verification}},
+  author = "W. Boyd and B. Forget and K. Smith",
+  booktitle = "Int'l Conf. on Mathematics and Computational Methods Applied to Nuclear Science \& Engineering",
+  address = "Nashville, TN, USA",
+  year = 2015
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BENCHMARKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 @inproceedings{horelik2013beavrs,
     title = {{Benchmark for Evaluation and Validation of Reactor Simulations (BEAVRS), v1.0.1}},
     author = "N. Horelik and B. Herman and B. Forget and K. Smith",
@@ -24,52 +78,9 @@
     year = 2013
 }
 
-@article{hebert1993consistent,
-  title = {{A Consistent Technique for the Pin-by-Pin Homogenization of a Pressurized Water Reactor Assembly}},
-  author = "H{\'e}bert, Alain",
-  journal = "Nuclear Science and Engineering",
-  volume = "113",
-  number = "3",
-  pages = "227--238",
-  year = 1993
-}
-
-@article{hebert1997advances,
-  title = {{Advances in the Development of a Subgroup Method for the Self-Shielding of Resonant Isotopes in Arbitrary Geometries}},
-  author = {H{\'e}bert, Alain},
-  journal = {Nuclear Science and Engineering},
-  volume = "126",
-  number = "3",
-  pages = "245--263",
-  year = 1997
-}
-
-@article{hebert2005ribon,
-  title = {The Ribon Extended Self-Shielding Model},
-  author = "H{\'e}bert, Alain",
-  journal = "Nuclear Science and Engineering",
-  volume = "151",
-  number = "1",
-  pages = "1--24",
-  year = 2005
-}
-
-@article{bell1967transport,
-  title = {{Multitable Treatments of Anisotropic Scattering in S N Multigroup Transport Calculations}},
-  author = "Bell, GI and Hansen, GE and Sandmeier, HA",
-  journal = "Nuclear Science and Engineering",
-  volume = "28",
-  number = "3",
-  pages = "376--383",
-  year = 1967
-}
-
-@phdthesis{gibson2016thesis,
-  title = {Novel Resonance Self-Shielding Methods for Nuclear Reactor Analysis},
-  author = {Gibson, Nathan A.},
-  school = "Massachusetts Institute of Technology",
-  year = 2016
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MONTE CARLO MGXS GENERATION STUDIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 @phdthesis{boyd2016thesis,
   title = {{Reactor Agnostic Multi-Group Cross Section Generation for Fine-Mesh Deterministic Neutron Transport Simulations}},
@@ -113,4 +124,46 @@
   booktitle = "ANS Topical Meeting on Reactor Physics (PHYSOR)",
   pages = "10--14",
   year = 2006
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PYTHON
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{walt2011numpy,
+  title = {{The NumPy Array: A Structure for Efficient Numerical Computation}},
+  author = "S. Walt and S. C. Colbert and G. Varoquaux",
+  journal = "Computing in Science \& Engineering",
+  volume = "13",
+  number = "2", 
+  pages = "22--30",
+  year = "2011",
+  doi = {10.1109/MCSE.2011.37}
+}
+
+@inproceedings{mckinney2010pandas,
+  title = {{Data Structures for Statistical Computing in Python}},
+  author = "W. McKinney",
+  booktitle = "9th Python in Science Conference",
+  pages = "51--56",
+  year = 2010
+}
+
+@misc{jones2011scipy,
+  title = {{SciPy}: Open Source Scientific Tools for {Python}},
+  author = {Eric Jones and Travis Oliphant and Pearu Peterson and others},
+  year = {2001--},
+  url = "http://www.scipy.org/",
+  note = {[Online; accessed 2016-07-07]}
+}
+
+@incollection{koranne2011hdf5,
+  title = {{Hierarchical Data Format 5: HDF5}},
+  author = "S. Koranne",
+  booktitle = "Handbook of Open Source Tools",
+  publisher = "Springer US",
+  isbn = "978-1-4419-7719-9",
+  pages = "191--200",
+  year = 2011,
+  doi = {10.1007/978-1-4419-7719-9_10},
 }
