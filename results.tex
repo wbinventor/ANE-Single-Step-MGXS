@@ -35,11 +35,12 @@ In the results that follow, the bias $\Delta\rho$ compares the eigenvalue $k_{ef
 \label{subsec:fiss-rates}
 
 -add figures of spatial distribution of errors
+-can I reproduce these plots? Do I have the batchwise.h5 results stored on my external hard drive??? If so, I should customize them for only 70 groups
 
 \begin{table}[h!]
   \centering
   \caption{OpenMOC fission rate percent relative errors.}
-  \label{tab:fiss-bias} 
+  \label{tab:fiss-errors}
   \begin{tabular}{l l r r}
   \toprule
   \textbf{Benchmark} & \textbf{Metric} & \textbf{Null} & \textbf{Degenerate} \\
@@ -52,6 +53,23 @@ In the results that follow, the bias $\Delta\rho$ compares the eigenvalue $k_{ef
   \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.35\textwidth}
+  \includegraphics[width=\linewidth]{figures/assembly/fission-errors}
+  \caption{}
+  \label{fig:assm-fiss-error}
+\end{subfigure}
+\begin{subfigure}{0.35\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/reflector/fission-errors}
+  \caption{}
+  \label{fig:reflector-fiss-error}
+\end{subfigure}
+\caption{OpenMOC fission rate percent relative errors for the (a) assembly and (b) 2$\times$2 colorset models.}
+\label{fig:fiss-errors}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -76,3 +94,21 @@ In the results that follow, the bias $\Delta\rho$ compares the eigenvalue $k_{ef
   \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{0.35\textwidth}
+  \includegraphics[width=\linewidth]{figures/assembly/capture-errors}
+  \caption{}
+  \label{fig:assm-capt-error}
+\end{subfigure}
+\begin{subfigure}{0.35\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/reflector/capture-errors}
+  \caption{}
+  \label{fig:reflector-capt-error}
+\end{subfigure}
+\caption{OpenMOC U-238 capture rate percent relative errors for the (a) assembly and (b) 2$\times$2 colorset models.}
+\label{fig:capt-errors}
+\end{figure}
+
