@@ -3,20 +3,22 @@
 \label{sec:methodology}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%This paper investigates Monte Carlo as a means to generate multi-group cross sections for fine-mesh transport codes. 
+
+This work required the development of a ``simulation triad'' encompassing three primary simulation tools. First, the OpenMC Monte Carlo code~\citep{romano2013openmc} was utilized to generate multi-group cross sections. Second, the MGXS were used by the OpenMOC code~\citep{boyd2014openmoc} for deterministic multi-group transport calculations. Third, the OpenCG library~\citep{boyd2015opencg} enabled the processing and transfer of tally data on combinatorial geometry (CG) meshes between OpenMC and OpenMOC. Each of the OpenMC, OpenMOC, and OpenCG codes is highlighted in~\autoref{subsec:openmc},~\autoref{subsec:openmoc} and~\autoref{subsec:opencg}.
+
+-outline sections for spatial homogenization?? probably needs further motivating
+
+%In addition, a significant amount of infrastructural code was developed to process the results produced by OpenMC and OpenMOC.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Continuous Energy Calculations with OpenMC}
 \label{subsec:openmc}
 
--OpenMC~\cite{romano2013openmc}
--Python API~\cite{boyd2016bigdata}
--NNDC data~\cite{nndc2016endf}
--distribcell tallies~\cite{lax2014distribcell}
--\texttt{openmc.mgxs}
-  -tallied in CASMO's seventy energy group structure~\cite{rhodes2006casmo}
--iso-in-lab
--runtime parameters:
-  -num. particles, batches
-  -computer hardware
+The OpenMC continuous energy Monte Carlo (MC) code \citep{romano2013openmc} was employed to generate multi-group cross sections, and reference eigenvalues and pin-wise fission and capture reaction rates. The \texttt{openmc.mgxs} Python module was used to tally multi-group cross sections in CASMO's seventy energy group structure~\citep{rhodes2006casmo} from a single eigenvalue calculation. The multi-group cross sections were calculated with OpenMC's distributed cell tally algorithm~\citep{lax2014distribcell}, which permits spatial tally zones across repeated cell instances. In particular, unique MGXS were computed for each fuel pin cell with distributed cell tallies in the repeating lattice benchmarks described in~\autoref{sec:test-cases}. 
+
+The OpenMC simulations used the ``iso-in-lab'' feature to enforce isotropic in lab scattering. The ``iso-in-lab'' feature samples the outgoing neutron energy from the scattering laws prescribed by the continuous energy cross section library, but the outgoing neutron direction of motion is sampled from an isotropic in lab distribution. Although isotropic in lab scattering is a poor approximation for LWRs, it eliminated scattering source anisotropy as one possible cause of approximation error between OpenMC and OpenMOC. This simplification made it possible to isolate the approximation error resulting from the spatial self-shielding model used to generate MGXS, which is the focal point of this paper.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Multi-Group Calculations with OpenMOC}
@@ -35,6 +37,7 @@
 \subsection{Pin-wise Spatial Homogenization Schemes}
 \label{subsec:homogenize}
 
+-single level Monte Carlo calculation
 -focus less on introducing these as ``schemes'' per se
   -rather two spatial self-shielding models to quantify approx. error
 
@@ -82,6 +85,6 @@ The \textit{null} spatial homogenization scheme uses a single Monte Carlo calcul
 \subsubsection{Degenerate Homogenization}
 \label{subsubsec:homogenize-degenerate}
 
-Unlike the null spatial homogenization scheme, the \textit{degenerate} scheme accounts for the different spatial self-shielding effects experienced by each instance of each fuel pin throughout a heterogeneous geometry. Like the null scheme, a single MC calculation of the complete heterogeneous geometry is used to generate MGXS for all materials. Unlike the null scheme, the MGXS are tallied separately for each instance of fissile material zones. For example, if a heterogeneous benchmark includes $N$ fuel pins, then $N$ collections of MGXS are separately tabulated for each fuel pin instance. The degenerate scheme tallies different MGXS even if the isotopic compositions in the fuel pin instances are identical (\textit{e.g.}, fresh fuel at the beginning of life) since each instance may experience different spatial self-shielding effects and hence have different MGXS.
+Unlike the null scheme, the \textit{degenerate} scheme accounts for the different spatial self-shielding effects experienced by each instance of each fuel pin throughout a heterogeneous geometry. Like the null scheme, a single MC calculation of the complete heterogeneous geometry is used to generate MGXS for all materials. Unlike the null scheme, the MGXS are tallied separately for each instance of fissile material zones. For example, if a heterogeneous benchmark includes $N$ fuel pins, then $N$ collections of MGXS are separately tabulated for each fuel pin instance. The degenerate scheme tallies different MGXS even if the isotopic compositions in the fuel pin instances are identical (\textit{e.g.}, fresh fuel at the beginning of life) since each instance may experience different spatial self-shielding effects and hence have different MGXS.
 
 The degenerate scheme generates MGXS for each fuel pin instance using OpenMC's distributed cell tallies~\citep{lax2014distribcell}. The OpenCG region differentiation algorithm~\citep{boyd2015opencg} is used to build a new OpenMOC geometry with unique cells and materials for each fuel pin. The MGXS are appropriately selected from OpenMC's distributed cell tallies to populate the MGXS in the OpenMOC materials. Multi-group transport calculations with MGXS generated using null and degenerate schemes may be compared to quantify the impact of modeling spatial self-shielding effects in MGXS for fissile zones in heterogeneous geometries.
