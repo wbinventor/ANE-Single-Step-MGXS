@@ -3,7 +3,7 @@
 \label{sec:test-cases}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This paper models two test cases derived from the Benchmark for Evaluation And Validation of Reactor Simulations (BEAVRS) PWR model~\citep{horelik2013beavrs}. Each test case includes heterogeneous features -- and corresponding spatial self-shielding effects -- in order to understand their implications for accurate pin-wise MGXS generation. Although BEAVRS is an axially heterogeneous 3D core model, both benchmarks were fabricated in 2D due to the geometric constraints in OpenMOC. The impact of fuel enrichment, CRGTs, BPs, inter-assembly currents and water reflectors is considered. The geometric and material specifications for the two test cases are summarized in~\autoref{subsec:benchmarks}. The reference results computed with OpenMC are discussed in~\autoref{subsec:metrics}.
+This paper modeled two test cases derived from the Benchmark for Evaluation And Validation of Reactor Simulations (BEAVRS) PWR model~\citep{horelik2013beavrs}. Each test case includes heterogeneous features -- and corresponding spatial self-shielding effects -- in order to understand their implications for accurate pin-wise MGXS generation. Although BEAVRS is an axially heterogeneous 3D core model, both benchmarks were fabricated in 2D due to the geometric constraints in OpenMOC. The impact of fuel enrichment, control rod guide tubes (CRGTs), burnable poisons (BPs), inter-assembly currents and water reflectors is considered. The geometric and material specifications for the two test cases are summarized in~\autoref{subsec:benchmarks}. The reference results computed with OpenMC are discussed in~\autoref{subsec:metrics}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -12,9 +12,9 @@ This paper models two test cases derived from the Benchmark for Evaluation And V
 
 The two test cases were comprised of materials from the BEAVRS model, including 1.6\% and 3.1\% enriched UO$_2$ fuel, borated water\footnote{The water consisted of 975 parts per million (ppm) boron.}, zircaloy, helium, air, borosilicate glass and stainless steel. The densities and isotopic compositions for each material are detailed in the BEAVRS specifications~\citep{horelik2013beavrs}. Each material was modeled with cross sections from the ENDF/B-VII.1 continuous energy cross section library~\citep{mcnpx2003manual} evaluated at 600K for hot zero power conditions.
 
-The first benchmark was a single fuel assembly with an array of 264 fuel pins of 1.6\% enriched UO$_2$ fuel with zircaloy cladding and a helium gap. The assembly included 24 CRGTs of borated water surrounded by zircaloy cladding, and a central instrument tube filled with air surrounded by two zircaloy tubes separated by borated water. The intra-pin egg-crate grid spacer and grid sleeve separating each assembly in the BEAVRS model were not included in the assembly benchmark. The assembly was modeled with reflective boundary conditions. The fuel assembly benchmark is illustrated for null and degenerate spatial homogenization in~\autoref{fig:null-assm} and~\ref{fig:degenerate-assm}, respectively.
+The first benchmark was a single fuel assembly with an array of 264 fuel pins of 1.6\% enriched UO$_2$ fuel with zircaloy cladding and a helium gap. The assembly included 24 CRGTs filled by borated water and surrounded by zircaloy cladding, and a central instrument tube filled with air surrounded by two zircaloy tubes separated by borated water. The intra-pin grid spacer and grid sleeve separating each assembly in the BEAVRS model were not included in the assembly benchmark. The assembly was modeled with reflective boundary conditions. The fuel assembly benchmark is illustrated for null and degenerate spatial homogenization in~\autoref{fig:benchmarks}.
 
-The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemblies extracted from the BEAVRS model. The top-left and bottom-right fuel assemblies in the colorset were of the same enrichment and configuration as the first benchmark configuration. The top-right and bottom-left fuel assemblies included 264 fuel pins of 3.1\% enriched UO$_2$ fuel, 20 CRGTs and a central instrument tube. In addition, the two 3.1\% enriched assemblies included four BPs consisting of eight layers of air, steel, borosilicate glass and zircaloy. The colorset was surrounded by a water reflector on the bottom and right that was of the same width as a fuel assembly. The reflected colorset included reflective boundaries on the top and left (adjacent to the fuel assemblies) with vacuum boundaries on the bottom and right (adjacent to the reflector). The colorset benchmark is illustrated for null and degenerate spatial homogenization in~\autoref{fig:null-reflector} and~\ref{fig:degenerate-reflector}, respectively.
+The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemblies extracted from the BEAVRS model. The top-left and bottom-right fuel assemblies in the colorset were of the same enrichment and configuration as the first benchmark configuration. The top-right and bottom-left fuel assemblies included 264 fuel pins of 3.1\% enriched UO$_2$ fuel, 20 CRGTs and a central instrument tube. In addition, the two 3.1\% enriched assemblies included four BPs consisting of eight layers of air, steel, borosilicate glass and zircaloy. The colorset was surrounded by a water reflector on the bottom and right that was of the same width as a fuel assembly. The colorset was modeled with reflective boundaries on the top and left and vacuum boundaries on the bottom and right. The colorset benchmark is illustrated for null and degenerate spatial homogenization in~\autoref{fig:benchmarks}.
 
 \begin{figure*}[h!]
 \centering
@@ -42,31 +42,31 @@ The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemb
   \caption{}
   \label{fig:degenerate-reflector}
 \end{subfigure}
-\caption{OpenMOC materials for the (a)-(b) assembly and (c)-(d) 2$\times$2 colorset models with null and degenerate homogenization, respectively.}
+\caption{OpenMOC materials for the assembly (a) -- (b) and colorset (c) -- (d) benchmarks with null and degenerate homogenization, respectively.}
 \label{fig:benchmarks}
 \end{figure*}
 
 %The colorset does not include the stainless steel baffle surrounding the fuel assemblies adjacent to the water reflector in the full core BEAVRS model.
 
-Flat source region spatial discretization meshes were applied to both benchmarks for the OpenMOC simulations as shown in~\autoref{fig:benchmarks-fsrs}. Eight equal angle subdivisions were used in all material zones. The UO$_2$ fuel was subdivided into five equal volume radial rings, while ten radial rings were employed in the water-filled CRGTs and instrument tubes. The borosilicate glass and borated water material zones filling the BPs were each discretized into five equal volume radial rings. Finally, five equally spaced rings were used in the moderator zones surrounding each pin. The 13.85824 cm of water reflector nearest the fuel assemblies in the colorset benchmark was discretized in a 0.125984 cm $\times$ 0.125984 cm rectilinear mesh, equivalent to a 10$\times$10 mesh in each pin. The of 7.55904 cm of reflector furthest from the fuel assemblies was discretized in a 1.25984 cm $\times$ 1.25984 cm pin-wise mesh.
+Flat source region spatial discretization meshes were applied to both benchmarks for the OpenMOC simulations as shown in~\autoref{fig:benchmarks-fsrs}. The UO$_2$ fuel was subdivided into five equal volume radial rings, while ten radial rings were employed in the water-filled CRGTs and instrument tubes. The borosilicate glass and borated water material zones filling the BPs were each discretized into five equal volume radial rings. Five equally spaced rings were used in the moderator zones surrounding each pin. Eight equal angle subdivisions were used in all pin cell material zones. The 13.85824 cm of water reflector nearest the fuel assemblies in the colorset benchmark was discretized in a 0.125984 cm $\times$ 0.125984 cm rectilinear mesh, equivalent to a 10$\times$10 mesh in each pin. The 7.55904 cm of reflector furthest from the fuel assemblies was discretized in a 1.25984 cm $\times$ 1.25984 cm pin-wise mesh.
 
-\begin{figure}[ht!]
+\begin{figure*}[ht!]
 \centering
 \begin{subfigure}{0.45\textwidth}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/assembly/fsrs}
   \caption{}
   \label{fig:benchmarks-assm-fsrs}
-\end{subfigure}
+\end{subfigure}%
 \begin{subfigure}{0.45\textwidth}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/reflector/fsrs}
   \caption{}
   \label{fig:benchmarks-reflector-fsrs}
 \end{subfigure}
-\caption{FSRs for the (a) fuel assembly and (b) colorset with reflector.}
+\caption{FSRs for the assembly (a) and colorset (b) benchmarks.}
 \label{fig:benchmarks-fsrs}
-\end{figure}
+\end{figure*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -77,7 +77,7 @@ A series of OpenMC simulations were used to calculate reference eigenvalues, pin
 
 \begin{table}[h!]
   \centering
-  \caption{Reference OpenMC eigenvalues for each test case.}
+  \caption{Reference OpenMC eigenvalues for each benchmark.}
   \label{tab:keff-reference} 
   \begin{tabular}{c c}
   \toprule
@@ -115,7 +115,7 @@ The reference energy-integrated fission and U-238 capture rate spatial distribut
   \caption{}
   \label{fig:capt-reflector}
 \end{subfigure}
-\caption{Fission and U-238 capture rates for the (a) -- (b) assembly and (c) -- (d) colorset.}
+\caption{Reference OpenMC fission and U-238 capture rates for the assembly (a) -- (b) and colorset (c) -- (d) benchmarks.}
 \label{fig:fiss-capt-rates}
 \end{figure*}
 
