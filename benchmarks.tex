@@ -30,6 +30,12 @@ The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemb
   \caption{}
   \label{fig:degenerate-assm}
 \end{subfigure}
+\caption{OpenMOC materials for the assembly with null (a) and degenerate (b) homogenization.}
+\label{fig:benchmarks}
+\end{figure*}
+
+\begin{figure*}[h!]
+\centering
 \begin{subfigure}{0.45\textwidth}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/reflector/geometry}
@@ -42,7 +48,7 @@ The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemb
   \caption{}
   \label{fig:degenerate-reflector}
 \end{subfigure}
-\caption{OpenMOC materials for the assembly (a) -- (b) and colorset (c) -- (d) benchmarks with null and degenerate homogenization, respectively.}
+\caption{OpenMOC materials for the colorset with null (a) and degenerate (b) homogenization.}
 \label{fig:benchmarks}
 \end{figure*}
 
@@ -91,7 +97,7 @@ A series of OpenMC simulations were used to calculate reference eigenvalues, pin
 
 The reference energy-integrated fission and U-238 capture rate spatial distributions were computed using rectilinear, pin-wise tally meshes in OpenMC and are shown in~\autoref{fig:fiss-capt-rates}. The reaction rates were volume-integrated across each fuel pin. The fission rates include fission from only U-235 and U-238 for the fresh PWR UO$_2$ fuel. The reaction rates were normalized to the mean of all non-zero reaction rates in each benchmark. The reaction rates in the instrument tubes, CRGTs and BPs are all zero and are illustrated in white. The 1-sigma uncertainties are less than 0.08\% in each pin for each benchmark.
 
-\begin{figure*}[h!]
+\begin{figure*}[hb!]
 \centering
 \begin{subfigure}{0.45\textwidth}
   \includegraphics[width=\linewidth]{figures/assembly/fission-rates}
