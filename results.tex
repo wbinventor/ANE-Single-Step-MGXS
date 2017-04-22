@@ -59,7 +59,9 @@ The OpenMOC energy-integrated pin-wise fission rates were compared to the refere
 \end{tabular}
 \end{table}
 
-The spatial distributions of fission rate errors are plotted as heatmaps for each benchmark in~\autoref{fig:fiss-errors}. The heatmaps illustrate systematic trends in the pin-wise fission errors which correlate with spatial heterogeneities in each benchmark. In particular, the fission rates are generally underpredicted for pins adjacent to a single CRGT, but overpredicted for pins adjacent to two CRGTs in the assembly. In addition, the errors are largest for pins along the inter-assembly and assembly-reflector interfaces for the colorset benchmark. For the PWR benchmarks modeled here, the moderation provided by neighboring CRGTs and reflectors softens the flux for nearby fuel pins and should be modeled when collapsing pin-wise MGXS for high-fidelity multi-group transport calculations.
+The spatial distributions of fission rate errors are plotted as heatmaps for each benchmark in~\autoref{fig:fiss-errors}. The heatmaps illustrate systematic trends in the pin-wise fission errors which correlate with spatial heterogeneities in each benchmark. In particular, the fission rates are generally underpredicted for pins adjacent to a single CRGT, but overpredicted for pins adjacent to two CRGTs in the assembly. In addition, the errors are largest for pins along the inter-assembly and assembly-reflector interfaces for the colorset benchmark.
+
+%For the PWR benchmarks modeled here, the moderation provided by neighboring CRGTs and reflectors softens the flux for nearby fuel pins and should be modeled when collapsing pin-wise MGXS for high-fidelity multi-group transport calculations.
 
 \begin{figure*}[h!]
 \centering
@@ -87,7 +89,7 @@ The spatial distributions of fission rate errors are plotted as heatmaps for eac
   \caption{}
   \label{fig:reflector-fiss-degen-error}
 \end{subfigure}
-\caption{OpenMOC fission rate percent relative errors for the (a) assembly and (b) 2$\times$2 colorset models.}
+\caption{OpenMOC fission rate percent relative errors for the assembly (a) and colorset (b) benchmarks.}
 \label{fig:fiss-errors}
 \end{figure*}
 
@@ -96,12 +98,12 @@ The spatial distributions of fission rate errors are plotted as heatmaps for eac
 \subsection{Capture Rates}
 \label{subsec:capt-rates}
 
--add figures of spatial distribution of errors
+The OpenMOC energy-integrated pin-wise U-238 capture rates were compared to the reference OpenMC capture rates shown in~\autoref{fig:capt-assm} and~\autoref{fig:capt-reflector}. The percent relative errors for each pin's capture rates were computed and the maximum and mean errors are listed for both benchmarks and spatial homogenization schemes in~\autoref{tab:capt-errors}. In particular, the maximum errors are the maximum of the absolute values of the errors along with the appropriate sign, while the mean errors are the averages of the absolute error magnitudes. The capture rate errors are more dependent on the spatial homogenization scheme used to compute MGXS in the fuel than are the fission rate errors. In particular, the degenerate scheme produces much smaller maximum and mean errors than the null scheme. The maximum error is greater than 1\% for both benchmarks with the null scheme, but is reduced by 2 -- 5$\times$ with the use of degenerate homogenization.
 
 \begin{table}[h!]
   \centering
   \caption{OpenMOC U-238 capture rate percent relative errors.}
-  \label{tab:capt-bias} 
+  \label{tab:capt-errors} 
   \begin{tabular}{l l r r}
   \toprule
   \textbf{Benchmark} & \textbf{Metric} & \textbf{Null} & \textbf{Degenerate} \\
@@ -114,6 +116,8 @@ The spatial distributions of fission rate errors are plotted as heatmaps for eac
   \bottomrule
 \end{tabular}
 \end{table}
+
+The spatial distributions of capture rate errors are plotted as heatmaps for each benchmark in~\autoref{fig:capt-errors}. The heatmaps illustrate systematic error trends in the pin-wise capture errors which correlate with spatial heterogeneities in each benchmark. The capture rate errors are most significant for pins adjacent to CRGTs and along the inter-assembly and assembly-reflector interfaces. In addition, the heatmaps illustrate how degenerate spatial homogenization scheme ``smooths'' the pin-wise errors as compared to the null scheme. In particular, the differential of the errors for pins near CRGTs, BPs, and assembly and reflector interfaces is substantially reduced when degenerate homogenization is applied. This underscores the importance of accounting for spatial heterogeneities -- such as the added moderation from CRGTs and reflectors -- when generating MGXS to predict U-238 capture and Pu-239 production in LWRs. The moderation provided by neighboring CRGTs and/or reflectors softens the local flux for nearby fuel pins and should be modeled when collapsing pin-wise MGXS for high-fidelity multi-group transport calculations. 
 
 \begin{figure*}[h!]
 \centering
@@ -141,7 +145,6 @@ The spatial distributions of fission rate errors are plotted as heatmaps for eac
   \caption{}
   \label{fig:reflector-capt-degen-error}
 \end{subfigure}
-\caption{OpenMOC U-238 capture rate percent relative errors for the (a) assembly and (b) 2$\times$2 colorset models.}
+\caption{OpenMOC U-238 capture rate percent relative errors for the assembly (a) and colorset (b) benchmarks.}
 \label{fig:capt-errors}
 \end{figure*}
-

@@ -18,13 +18,13 @@ The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemb
 
 \begin{figure*}[h!]
 \centering
-\begin{subfigure}{0.45\textwidth}
+\begin{subfigure}{0.42\textwidth}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/assembly/geometry}
   \caption{}
   \label{fig:null-assm}
 \end{subfigure}
-\begin{subfigure}{0.45\textwidth}
+\begin{subfigure}{0.42\textwidth}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/assembly/degenerate-materials}
   \caption{}
@@ -36,13 +36,13 @@ The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemb
 
 \begin{figure*}[h!]
 \centering
-\begin{subfigure}{0.45\textwidth}
+\begin{subfigure}{0.42\textwidth}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/reflector/geometry}
   \caption{}
   \label{fig:null-reflector}
 \end{subfigure}
-\begin{subfigure}{0.45\textwidth}
+\begin{subfigure}{0.42\textwidth}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/reflector/degenerate-materials}
   \caption{}
@@ -52,19 +52,15 @@ The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemb
 \label{fig:benchmarks}
 \end{figure*}
 
-%The colorset does not include the stainless steel baffle surrounding the fuel assemblies adjacent to the water reflector in the full core BEAVRS model.
-
-Flat source region spatial discretization meshes were applied to both benchmarks for the OpenMOC simulations as shown in~\autoref{fig:benchmarks-fsrs}. The UO$_2$ fuel was subdivided into five equal volume radial rings, while ten radial rings were employed in the water-filled CRGTs and instrument tubes. The borosilicate glass and borated water material zones filling the BPs were each discretized into five equal volume radial rings. Five equally spaced rings were used in the moderator zones surrounding each pin. Eight equal angle subdivisions were used in all pin cell material zones. The 13.85824 cm of water reflector nearest the fuel assemblies in the colorset benchmark was discretized in a 0.125984 cm $\times$ 0.125984 cm rectilinear mesh, equivalent to a 10$\times$10 mesh in each pin. The 7.55904 cm of reflector furthest from the fuel assemblies was discretized in a 1.25984 cm $\times$ 1.25984 cm pin-wise mesh.
-
-\begin{figure*}[ht!]
+\begin{figure*}[h!]
 \centering
-\begin{subfigure}{0.45\textwidth}
+\begin{subfigure}{0.42\textwidth}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/assembly/fsrs}
   \caption{}
   \label{fig:benchmarks-assm-fsrs}
 \end{subfigure}%
-\begin{subfigure}{0.45\textwidth}
+\begin{subfigure}{0.42\textwidth}
   \centering
   \includegraphics[width=0.8\linewidth]{figures/reflector/fsrs}
   \caption{}
@@ -74,6 +70,10 @@ Flat source region spatial discretization meshes were applied to both benchmarks
 \label{fig:benchmarks-fsrs}
 \end{figure*}
 
+
+%The colorset does not include the stainless steel baffle surrounding the fuel assemblies adjacent to the water reflector in the full core BEAVRS model.
+
+Flat source region spatial discretization meshes were applied to both benchmarks for the OpenMOC simulations as shown in~\autoref{fig:benchmarks-fsrs}. The UO$_2$ fuel was subdivided into five equal volume radial rings, while ten radial rings were employed in the water-filled CRGTs and instrument tubes. The borosilicate glass and borated water material zones filling the BPs were each discretized into five equal volume radial rings. Five equally spaced rings were used in the moderator zones surrounding each pin. Eight equal angle subdivisions were used in all pin cell material zones. The 13.85824 cm of water reflector nearest the fuel assemblies in the colorset benchmark was discretized in a 0.125984 cm $\times$ 0.125984 cm rectilinear mesh, equivalent to a 10$\times$10 mesh in each pin. The 7.55904 cm of reflector furthest from the fuel assemblies was discretized in a 1.25984 cm $\times$ 1.25984 cm pin-wise mesh.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Verification Metrics}
@@ -94,8 +94,6 @@ A series of OpenMC simulations were used to calculate reference eigenvalues, pin
   \bottomrule
 \end{tabular}
 \end{table}
-
-The reference energy-integrated fission and U-238 capture rate spatial distributions were computed using rectilinear, pin-wise tally meshes in OpenMC and are shown in~\autoref{fig:fiss-capt-rates}. The reaction rates were volume-integrated across each fuel pin. The fission rates include fission from only U-235 and U-238 for the fresh PWR UO$_2$ fuel. The reaction rates were normalized to the mean of all non-zero reaction rates in each benchmark. The reaction rates in the instrument tubes, CRGTs and BPs are all zero and are illustrated in white. The 1-sigma uncertainties are less than 0.08\% in each pin for each benchmark.
 
 \begin{figure*}[hb!]
 \centering
@@ -124,6 +122,8 @@ The reference energy-integrated fission and U-238 capture rate spatial distribut
 \caption{Reference OpenMC fission and U-238 capture rates for the assembly (a) -- (b) and colorset (c) -- (d) benchmarks.}
 \label{fig:fiss-capt-rates}
 \end{figure*}
+
+The reference energy-integrated fission and U-238 capture rate spatial distributions were computed using rectilinear, pin-wise tally meshes in OpenMC and are shown in~\autoref{fig:fiss-capt-rates}. The reaction rates were volume-integrated across each fuel pin. The fission rates include fission from only U-235 and U-238 for the fresh PWR UO$_2$ fuel. The reaction rates were normalized to the mean of all non-zero reaction rates in each benchmark. The reaction rates in the instrument tubes, CRGTs and BPs are all zero and are illustrated in white. The 1-sigma uncertainties are less than 0.08\% in each pin for each benchmark.
 
 As illustrated in the figures, the reaction rate rate distributions are strongly dependent on the spatially heterogeneous features in each benchmark. For example, the CRGTs provide additional moderation and increase the fision and U-238 capture rates in nearby fuel pins. The inclusion of BPs reduces the neutron population and therefore the reaction rates for the surrounding fuel pins. The presence of a reflector with a mixture of vacuum and reflective BCs induces a tilt in the reaction rates across the assemblies in the colorset.
 
