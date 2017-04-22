@@ -54,22 +54,35 @@ In the results that follow, the bias $\Delta\rho$ compares the eigenvalue $k_{ef
 \end{tabular}
 \end{table}
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
 \centering
-\begin{subfigure}{0.35\textwidth}
-  \includegraphics[width=\linewidth]{figures/assembly/fission-errors}
-  \caption{}
-  \label{fig:assm-fiss-error}
-\end{subfigure}
-\begin{subfigure}{0.35\textwidth}
+\begin{subfigure}{0.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{figures/reflector/fission-errors}
+  \includegraphics[width=\linewidth]{figures/assembly/fiss-null-errors}
   \caption{}
-  \label{fig:reflector-fiss-error}
+  \label{fig:assm-fiss-null-error}
+\end{subfigure}%
+\begin{subfigure}{0.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/assembly/fiss-degenerate-errors}
+  \caption{}
+  \label{fig:assm-fiss-degen-error}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/reflector/fiss-null-errors}
+  \caption{}
+  \label{fig:reflector-fiss-null-error}
+\end{subfigure}%
+\begin{subfigure}{0.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/reflector/fiss-degenerate-errors}
+  \caption{}
+  \label{fig:reflector-fiss-degen-error}
 \end{subfigure}
 \caption{OpenMOC fission rate percent relative errors for the (a) assembly and (b) 2$\times$2 colorset models.}
 \label{fig:fiss-errors}
-\end{figure}
+\end{figure*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -95,20 +108,33 @@ In the results that follow, the bias $\Delta\rho$ compares the eigenvalue $k_{ef
 \end{tabular}
 \end{table}
 
-\begin{figure}[h!]
+\begin{figure*}[h!]
 \centering
-\begin{subfigure}{0.35\textwidth}
-  \includegraphics[width=\linewidth]{figures/assembly/capture-errors}
-  \caption{}
-  \label{fig:assm-capt-error}
-\end{subfigure}
-\begin{subfigure}{0.35\textwidth}
+\begin{subfigure}{0.45\textwidth}
   \centering
-  \includegraphics[width=\linewidth]{figures/reflector/capture-errors}
+  \includegraphics[width=\linewidth]{figures/assembly/capt-null-errors}
   \caption{}
-  \label{fig:reflector-capt-error}
+  \label{fig:assm-capt-null-error}
+\end{subfigure}%
+\begin{subfigure}{0.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/assembly/capt-degenerate-errors}
+  \caption{}
+  \label{fig:assm-capt-degen-error}
+\end{subfigure}
+\begin{subfigure}{0.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/reflector/capt-null-errors}
+  \caption{}
+  \label{fig:reflector-capt-null-error}
+\end{subfigure}%
+\begin{subfigure}{0.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/reflector/capt-degenerate-errors}
+  \caption{}
+  \label{fig:reflector-capt-degen-error}
 \end{subfigure}
 \caption{OpenMOC U-238 capture rate percent relative errors for the (a) assembly and (b) 2$\times$2 colorset models.}
 \label{fig:capt-errors}
-\end{figure}
+\end{figure*}
 
