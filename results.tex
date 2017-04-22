@@ -40,6 +40,8 @@ The bias is listed for both benchmarks and spatial homogenization schemes in~\au
 \subsection{Fission Rates}
 \label{subsec:fiss-rates}
 
+The OpenMOC energy-integrated pin-wise fission rates were compared to the reference OpenMC fission rates shown in~\autoref{fig:fiss-assm} and~\autoref{fig:fiss-reflector}. The percent relative errors for each pin's fission rates were computed and the maximum and mean errors are listed for both benchmarks and spatial homogenization schemes in~\autoref{tab:fiss-errors}. In particular, the maximum errors are the maximum of the absolute values of the errors along with the appropriate sign, while the mean errors are the averages of the absolute error magnitudes. The fission rate errors are somewhat dependent on the spatial homogenization scheme used to compute MGXS in the fuel. In particular, the degenerate scheme produces slightly smaller maximum and mean errors than the null scheme.
+
 \begin{table}[h!]
   \centering
   \caption{OpenMOC fission rate percent relative errors.}
@@ -56,6 +58,8 @@ The bias is listed for both benchmarks and spatial homogenization schemes in~\au
   \bottomrule
 \end{tabular}
 \end{table}
+
+The spatial distributions of fission rate errors are plotted as heatmaps for each benchmark in~\autoref{fig:fiss-errors}. The heatmaps illustrate systematic trends in the pin-wise fission errors which correlate with spatial heterogeneities in each benchmark. In particular, the fission rates are generally underpredicted for pins adjacent to a single CRGT, but overpredicted for pins adjacent to two CRGTs in the assembly. In addition, the errors are largest for pins along the inter-assembly and assembly-reflector interfaces for the colorset benchmark. For the PWR benchmarks modeled here, the moderation provided by neighboring CRGTs and reflectors softens the flux for nearby fuel pins and should be modeled when collapsing pin-wise MGXS for high-fidelity multi-group transport calculations.
 
 \begin{figure*}[h!]
 \centering
