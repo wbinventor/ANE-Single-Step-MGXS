@@ -66,7 +66,7 @@ The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemb
   \caption{}
   \label{fig:benchmarks-reflector-fsrs}
 \end{subfigure}
-\caption{FSRs for the assembly (a) and colorset (b) benchmarks.}
+\caption{OpenMOC FSRs for the assembly (a) and colorset (b) benchmarks.}
 \label{fig:benchmarks-fsrs}
 \end{figure*}
 
@@ -79,7 +79,9 @@ Flat source region spatial discretization meshes were applied to both benchmarks
 \subsection{Verification Metrics}
 \label{subsec:metrics}
 
-A series of OpenMC simulations were used to calculate reference eigenvalues, pin-wise fission rates, and pin-wise U-238 capture rates for both benchmarks. The reference solutions were computed with 100 inactive and 900 active batches of 10$^7$ particle histories per batch. The reference eigenvalues are listed in~\autoref{tab:keff-reference}. The OpenMC ``combined'' eigenvalue estimator is reported along with the associated 1-sigma uncertainty of one pcm for both test cases.
+A series of OpenMC simulations were used to calculate reference eigenvalues, pin-wise fission rates, and pin-wise U-238 capture rates for both benchmarks. The OpenMC ``combined'' eigenvalue estimator is reported along with the associated 1-sigma uncertainty of one pcm for both test cases in~\autoref{tab:keff-reference}.
+
+% The reference solutions were computed with 100 inactive and 900 active batches of 10$^7$ particle histories per batch. 
 
 \begin{table}[h!]
   \centering
@@ -95,7 +97,7 @@ A series of OpenMC simulations were used to calculate reference eigenvalues, pin
 \end{tabular}
 \end{table}
 
-\begin{figure*}[hb!]
+\begin{figure*}[h!]
 \centering
 \begin{subfigure}{0.45\textwidth}
   \includegraphics[width=\linewidth]{figures/assembly/fission-rates}
