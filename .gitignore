@@ -3,6 +3,7 @@ data
 ## Core latex/pdflatex auxiliary files:
 *.spl
 *.aux
+*.pdf
 *.lof
 *.log
 *.lot
