@@ -12,9 +12,9 @@ This paper modeled two test cases derived from the Benchmark for Evaluation And 
 
 The two test cases were comprised of materials from the BEAVRS model, including 1.6\% and 3.1\% enriched UO$_2$ fuel, borated water\footnote{The water consisted of 975 parts per million (ppm) boron.}, zircaloy, helium, air, borosilicate glass and stainless steel. The densities and isotopic compositions for each material are detailed in the BEAVRS specifications~\citep{horelik2013beavrs}. Each material was modeled with cross sections from the ENDF/B-VII.1 continuous energy cross section library~\citep{mcnpx2003manual} evaluated at 600K for hot zero power conditions.
 
-The first benchmark was a single fuel assembly with an array of 264 fuel pins of 1.6\% enriched UO$_2$ fuel with zircaloy cladding and a helium gap. The assembly included 24 CRGTs filled by borated water and surrounded by zircaloy cladding, and a central instrument tube filled with air surrounded by two zircaloy tubes separated by borated water. The intra-pin grid spacer and grid sleeve separating each assembly in the BEAVRS model were not included in the assembly benchmark. The assembly was modeled with reflective boundary conditions. The fuel assembly benchmark is illustrated for null and degenerate spatial homogenization in~\autoref{fig:benchmarks}.
+The first benchmark was a single fuel assembly with an array of 264 fuel pins of 1.6\% enriched UO$_2$ fuel with zircaloy cladding and a helium gap. The assembly included 24 CRGTs filled by borated water and surrounded by zircaloy cladding, and a central instrument tube filled with air surrounded by two zircaloy tubes separated by borated water. The intra-pin grid spacer and grid sleeve separating each assembly in the BEAVRS model were not included in the assembly benchmark. The assembly was modeled with reflective boundary conditions. The fuel assembly benchmark is illustrated for null and degenerate spatial homogenization in~\autoref{fig:benchmarks-assm}.
 
-The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemblies extracted from the BEAVRS model. The top-left and bottom-right fuel assemblies in the colorset were of the same enrichment and configuration as the first benchmark configuration. The top-right and bottom-left fuel assemblies included 264 fuel pins of 3.1\% enriched UO$_2$ fuel, 20 CRGTs and a central instrument tube. In addition, the two 3.1\% enriched assemblies included four BPs consisting of eight layers of air, steel, borosilicate glass and zircaloy. The colorset was surrounded by a water reflector on the bottom and right that was of the same width as a fuel assembly. The colorset was modeled with reflective boundaries on the top and left and vacuum boundaries on the bottom and right. The colorset benchmark is illustrated for null and degenerate spatial homogenization in~\autoref{fig:benchmarks}.
+The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemblies extracted from the BEAVRS model. The top-left and bottom-right fuel assemblies in the colorset were of the same enrichment and configuration as the first benchmark configuration. The top-right and bottom-left fuel assemblies included 264 fuel pins of 3.1\% enriched UO$_2$ fuel, 20 CRGTs and a central instrument tube. In addition, the two 3.1\% enriched assemblies included four BPs consisting of eight layers of air, steel, borosilicate glass and zircaloy. The colorset was surrounded by a water reflector on the bottom and right that was of the same width as a fuel assembly. The colorset was modeled with reflective boundaries on the top and left and vacuum boundaries on the bottom and right. The colorset benchmark is illustrated for null and degenerate spatial homogenization in~\autoref{fig:benchmarks-colorset}.
 
 \begin{figure*}[h!]
 \centering
@@ -31,7 +31,7 @@ The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemb
   \label{fig:degenerate-assm}
 \end{subfigure}
 \caption{OpenMOC materials for the assembly with null (a) and degenerate (b) homogenization.}
-\label{fig:benchmarks}
+\label{fig:benchmarks-assm}
 \end{figure*}
 
 \begin{figure*}[h!]
@@ -49,7 +49,7 @@ The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemb
   \label{fig:degenerate-reflector}
 \end{subfigure}
 \caption{OpenMOC materials for the colorset with null (a) and degenerate (b) homogenization.}
-\label{fig:benchmarks}
+\label{fig:benchmarks-colorset}
 \end{figure*}
 
 \begin{figure*}[h!]
