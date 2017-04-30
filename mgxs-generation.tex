@@ -3,19 +3,19 @@
 \label{sec:mgxs-generation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This paper uses Monte Carlo to generate MGXS. A single-step framework used to generate MGXS from Monte Carlo is discussed in~\autoref{subsec:single-step}. Two pin-wise spatial homogenization schemes used to quantify approximation error due to inter-pin spatial self-shielding are introduced in~\autoref{subsec:homogenize}.
+This paper uses Monte Carlo to generate MGXS. A single-step framework used to generate MGXS from Monte Carlo is discussed in \autoref{subsec:single-step}. Two pin-wise spatial homogenization schemes used to quantify approximation error due to inter-pin spatial self-shielding are introduced in \autoref{subsec:homogenize}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{A Single-Step Framework}
 \label{subsec:single-step}
 
-In general, MGXS generation schemes use a multi-step approach to decouple the energy, angular and spatial dimensions of the transport equation. The multi-step approach typically applies high-fidelity models of the energy self-shielding physics to low-fidelity geometric models of unique core components as illustrated in~\autoref{fig:multi-step-framework}. The multi-step approach uses a combination of models of varying complexity to optimize overall simulation speed with accuracy. However, this is often done at the expense of generality. For example, multi-step MGXS generation schemes do not typically model inter-assembly physics or the effect of reflectors and other core heterogeneities on the spatial distribution of the flux. Instead, geometric heuristics are often used to embed spatial self-shielding effects in MGXS for similarly shielded spatial zones (\textit{e.g.}, fuel pins with similar neighboring pins). The approximations to the energy and spatial variation of the flux introduce approximation error in full-core calculations and limit the core design parameter space for which multi-step schemes may be applied. 
+In general, MGXS generation schemes use a multi-step approach to decouple the energy, angular and spatial dimensions of the transport equation. The multi-step approach typically applies high-fidelity models of the energy self-shielding physics to low-fidelity geometric models of unique core components as illustrated in \autoref{fig:multi-step-framework}. The multi-step approach uses a combination of models of varying complexity to optimize overall simulation speed with accuracy. However, this is often done at the expense of generality. For example, multi-step MGXS generation schemes do not typically model inter-assembly physics or the effect of reflectors and other core heterogeneities on the spatial distribution of the flux. Instead, geometric heuristics are often used to embed spatial self-shielding effects in MGXS for similarly shielded spatial zones (\textit{e.g.}, fuel pins with similar neighboring pins). The approximations to the energy and spatial variation of the flux introduce approximation error in full-core calculations and limit the core design parameter space for which multi-step schemes may be applied. 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\linewidth]{figures/multi-step-flow-chart}
-\caption{The multi-step approach typically used for deterministic reactor physics calculations~\citep{gibson2016thesis}.}
+\caption{The multi-step approach typically used for deterministic reactor physics calculations \citep{gibson2016thesis}.}
 \label{fig:multi-step-framework}
 \end{figure}
 
@@ -31,7 +31,7 @@ This paper abandons the multi-step approach in favor of a single-step framework 
 %-focus less on introducing these as ``schemes'' per se
 %  -rather two spatial self-shielding models to quantify approx. error
 
-This paper employs two different spatial homogenization schemes to model spatial self-shielding effects in MGXS. Although all spatial zones may experience spatial self-shielding, this chapter only models the impact of spatial self-shielding on MGXS in fissile regions. The null and degenerate spatial homogenization schemes are introduced in~\autoref{subsubsec:homogenize-null} and~\autoref{subsubsec:homogenize-degenerate}, respectively. These schemes model spatial self-shielding for each fuel pin with increasing granularity. 
+This paper employs two different spatial homogenization schemes to model spatial self-shielding effects in MGXS. Although all spatial zones may experience spatial self-shielding, this chapter only models the impact of spatial self-shielding on MGXS in fissile regions. The null and degenerate spatial homogenization schemes are introduced in \autoref{subsubsec:homogenize-null} and \autoref{subsubsec:homogenize-degenerate}, respectively. These schemes model spatial self-shielding for each fuel pin with increasing granularity. 
 
 %The \texttt{openmc.mgxs} module was used to compute 70-group MGXS with OpenMC for both the assembly and colorset benchmarks. 
 
