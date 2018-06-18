@@ -64,6 +64,28 @@ The second benchmark was constructed as a 2$\times$2 colorset of two fuel assemb
 \label{fig:benchmarks-colorset}
 \end{figure*}
 
+The fuel assembly and colorset benchmarks are color-coded by material and illustrated in \autoref{fig:lns-assm} and \autoref{fig:lns-reflector} for the LNS homogenization scheme. As indicated by the figures, fuel pin types with similar neighboring heterogeneities are assigned unique MGXS. As a result, LNS homogenization would be expected to enable more accurate predictions of reaction rate distributions than is possible with the null scheme. However, a cursory inspection of the colorset reveals a notable shortcoming of the LNS algorithm. In particular, the pins along the inter-assembly and assembly-reflector interfaces in the colorset are treated the same (\textit{i.e.}, with the same MGXS). As a result, LNS may result in poor reaction rate predictions for these pins. It is possible that the LNS algorithm could be specialized to differentiate between the pin types on the outer edge of each assembly, but such customizations would be challenging to implement and generalize.
+
+The total number of materials (\textit{i.e.}, MGXS) used by each of the three homogenization schemes is given in \autoref{tab:num-materials-lns}. Only nine unique fissile materials are used for each fuel assembly with LNS, far fewer than the 264 in degenerate homogenization. Consequently, the MC tallies for LNS homogenization will converge more quickly than those for degenerate homogenization. 
+
+\begin{table}[h!]
+  \centering
+  \caption{Number of fuel materials for each homogenization scheme.}
+  \small
+  \label{tab:num-materials-lns}
+  \vspace{6pt}
+  \begin{tabular}{l r r r}
+  \toprule
+  & \multicolumn{3}{c}{\bf \# Fuel Materials} \\
+  \cline{2-4}
+  \multirow{-2}{*}{\bf Benchmark} & \textbf{Null} & \textbf{Degenerate} & \textbf{LNS} \\
+  \midrule
+Assembly & 1 & 264 & 9 \\
+Colorset & 2 & 1,056 & 29 \\
+  \bottomrule
+\end{tabular}
+\end{table}
+
 \begin{figure*}[h!]
 \centering
 \begin{subfigure}{0.42\textwidth}
@@ -93,7 +115,7 @@ Flat source region spatial discretization meshes were applied to both benchmarks
 
 A series of OpenMC simulations was used to calculate reference eigenvalues, pin-wise fission rates, and pin-wise U-238 capture rates for both benchmarks. The OpenMC ``combined'' eigenvalue estimator is reported along with the associated 1-sigma uncertainty of one pcm for both benchmarks in~\autoref{tab:keff-reference}.
 
-% The reference solutions were computed with 100 inactive and 900 active batches of 10$^7$ particle histories per batch. 
+% The reference solutions were computed with 100 inactive and 900 active batches of 10$^7$ particle histories per batch.
 
 \begin{table}[h!]
   \centering
