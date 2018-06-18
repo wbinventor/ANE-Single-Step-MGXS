@@ -40,7 +40,7 @@ The bias is listed for both benchmarks and the three spatial homogenization sche
 \subsection{Fission Rates}
 \label{subsec:fiss-rates}
 
-The OpenMOC energy-integrated pin-wise fission rates were compared to the reference OpenMC fission rates shown in \autoref{fig:fiss-assm} and \autoref{fig:fiss-reflector}. The percent relative errors for each pin's fission rates were computed and the maximum and mean errors are listed for both benchmarks and spatial homogenization schemes in \autoref{tab:fiss-errors}. In particular, the maximum errors are the maximum of the absolute values of the errors along with the appropriate sign, while the mean errors are the averages of the absolute error magnitudes. The fission rate errors are somewhat dependent on the spatial homogenization scheme used to compute MGXS in the fuel. In particular, the degenerate scheme produces slightly smaller maximum and mean errors than the null scheme.
+The OpenMOC energy-integrated pin-wise fission rates were compared to the reference OpenMC fission rates shown in \autoref{fig:fiss-assm} and \autoref{fig:fiss-reflector}. The percent relative errors for each pin's fission rates were computed and the maximum and mean errors are listed for both benchmarks and the three spatial homogenization schemes in \autoref{tab:fiss-errors}. In particular, the maximum errors are the maximum of the absolute values of the errors along with the appropriate sign, while the mean errors are the averages of the absolute error magnitudes. The fission rate errors are somewhat dependent on the spatial homogenization scheme used to compute MGXS in the fuel. In particular, the degenerate scheme produces slightly smaller maximum and mean errors than the null scheme.
 
 \begin{table}[h!]
   \centering
@@ -100,7 +100,7 @@ The OpenMOC energy-integrated pin-wise fission rates were compared to the refere
 \subsection{Capture Rates}
 \label{subsec:capt-rates}
 
-The OpenMOC energy-integrated pin-wise U-238 capture rates were compared to the reference OpenMC capture rates shown in \autoref{fig:capt-assm} and \autoref{fig:capt-reflector}. The percent relative errors for each pin's capture rates were computed and the maximum and mean errors are listed for both benchmarks and spatial homogenization schemes in \autoref{tab:capt-errors}. In particular, the maximum errors are the maximum of the absolute values of the errors along with the appropriate sign, while the mean errors are the averages of the absolute error magnitudes. The capture rate errors are more dependent on the spatial homogenization scheme used to compute MGXS in the fuel than are the fission rate errors. In particular, the degenerate scheme produces much smaller maximum and mean errors than the null scheme. The maximum error is greater than 1\% for both benchmarks with the null scheme, but is reduced by 2 -- 5$\times$ with the use of degenerate homogenization.
+The OpenMOC energy-integrated pin-wise U-238 capture rates were compared to the reference OpenMC capture rates shown in \autoref{fig:capt-assm} and \autoref{fig:capt-reflector} for the assembly and reflector, respectively. The percent relative errors for each pin's capture rates were computed and the maximum and mean errors are listed for both benchmarks and the three spatial homogenization schemes in \autoref{tab:capt-errors}. In particular, the maximum errors are the maximum of the absolute values of the errors along with the appropriate sign, while the mean errors are the averages of the absolute error magnitudes.
 
 \begin{table}[h!]
   \centering
@@ -119,7 +119,13 @@ The OpenMOC energy-integrated pin-wise U-238 capture rates were compared to the 
 \end{tabular}
 \end{table}
 
-The spatial distributions of capture rate errors are plotted as heatmaps for the assembly and colorset in~\autoref{fig:assm-capt-errors} and~\autoref{fig:reflector-capt-errors}, respectively. The heatmaps illustrate systematic error trends in the pin-wise capture errors which correlate with spatial heterogeneities in each benchmark. The capture rate errors are most significant for pins adjacent to CRGTs and along the inter-assembly and assembly-reflector interfaces. In addition, the heatmaps illustrate how degenerate spatial homogenization scheme ``smooths'' the pin-wise errors as compared to the null scheme. In particular, the differential of the errors for pins near CRGTs and BPs, and along inter-assembly and assembly-reflector interfaces is substantially reduced when degenerate homogenization is applied. This underscores the importance of accounting for spatial heterogeneities -- such as the added moderation from CRGTs and reflectors -- when generating MGXS to predict U-238 capture and Pu-239 production in LWRs. The moderation provided by neighboring CRGTs and/or reflectors softens the local flux for nearby fuel pins and should be modeled when collapsing pin-wise MGXS for high-fidelity multi-group transport calculations.
+The capture rate errors are more dependent on the spatial homogenization scheme used to compute MGXS in the fuel than are the fission rate errors. In particular, the degenerate scheme produces much smaller maximum and mean errors than the null scheme. The maximum error is greater than 1\% for both benchmarks with the null scheme, but is reduced by 2 -- 5$\times$ with the use of degenerate homogenization. This underscores the importance of accounting for spatial heterogeneities when generating MGXS to predict U-238 capture and Pu-239 production in LWRs. The moderation provided by neighboring CRGTs and reflectors softens the flux for nearby fuel pins and should be modeled when collapsing pin-wise MGXS for high-fidelity multi-group transport calculations.
+
+The max and mean U-238 capture rate errors are reduced by 3.7$\times$ and 6.3$\times$, respectively, for LNS with respect to null homogenization for the assembly. This demonstrates that LNS homogenization more accurately models inter-pin spatial self-shielding effects in pin-wise MGXS. Furthermore, the max and mean errors are reduced by 10\% and 25\% relative to degenerate homogenization. This latter observation indicates that LNS de-noises the statistical uncertainties of the MC-generated MGXS by averaging the MGXS for each grouping of fuel pins, resulting in MGXS with smaller uncertainties than those generated by degenerate homogenization. However, the results are significantly different for the colorset. In particular, the max error for the colorset with LNS homogenization is very nearly the same as those for null homogenization. The MGXS for the fuel pins near the assembly-reflector interface are not separately homogenized with LNS and thus fail to account for the additional moderation from the reflector.
+
+The spatial distributions of capture rate errors are plotted as heatmaps for the assembly and colorset in \autoref{fig:assm-capt-errors} and \autoref{fig:reflector-capt-errors}, respectively. The null scheme exhibits the largest errors for pins near CRGTs and along the inter-assembly and assembly-reflector interfaces, while the degenerate scheme produces a very nearly even error distribution across the pins in the colorset. The heatmaps illustrate similar error distributions for degenerate and LNS spatial homogenization for the assembly, but systematic deviations for the colorset. The LNS scheme smooths the error distribution, but exhibits large errors for the single outermost row of pins adjacent to the reflector, and to a lesser extent, the pins along the inter-assembly interfaces. More specifically, the U-238 capture rates are under-predicted near the reflector and over-predicted for interior pins.
+
+This result is indicative of the collective homogenization of all pins along the exterior of each assembly irregardless of the neighboring spatial zones. The flux at U-238 capture resonance energies is more shielded for pins adjacent to the reflector than for interior pins, resulting in larger U-238 capture MGXS. LNS homogenizes the larger MGXS for pins along the reflector with the smaller capture MGXS for interior pins, which leads to a systematic under-prediction for the outermost pins. Nevertheless, track density-weighted spatial homogenization ensures that the errors improve the most for the interior pins with the largest reaction rates (see \autoref{fig:fiss-capt-rates}).
 
 \clearpage
 
@@ -170,33 +176,3 @@ The spatial distributions of capture rate errors are plotted as heatmaps for the
 \caption{OpenMOC U-238 capture rate percent relative errors for the colorset with null (a), degenerate (b) and LNS (C) spatial homogenization.}
 \label{fig:reflector-capt-errors}
 \end{figure}
-
-%\begin{figure*}[h!]
-%\centering
-%\begin{subfigure}{0.45\textwidth}
-%  \centering
-%  \includegraphics[width=\linewidth]{figures/assembly/capt-null-errors}
-%  \caption{}
-%  \label{fig:assm-capt-null-error}
-%\end{subfigure}%
-%\begin{subfigure}{0.45\textwidth}
-%  \centering
-%  \includegraphics[width=\linewidth]{figures/assembly/capt-degenerate-errors}
-%  \caption{}
-%  \label{fig:assm-capt-degen-error}
-%\end{subfigure}
-%\begin{subfigure}{0.45\textwidth}
-%  \centering
-%  \includegraphics[width=\linewidth]{figures/reflector/capt-null-errors}
-%  \caption{}
-%  \label{fig:reflector-capt-null-error}
-%\end{subfigure}%
-%\begin{subfigure}{0.45\textwidth}
-%  \centering
-%  \includegraphics[width=\linewidth]{figures/reflector/capt-degenerate-errors}
-%  \caption{}
-%  \label{fig:reflector-capt-degen-error}
-%\end{subfigure}
-%\caption{OpenMOC U-238 capture rate percent relative errors for the assembly (a) and colorset (b) benchmarks.}
-%\label{fig:capt-errors}
-%\end{figure*}
