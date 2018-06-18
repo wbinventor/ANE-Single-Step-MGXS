@@ -46,52 +46,54 @@ The OpenMOC energy-integrated pin-wise fission rates were compared to the refere
   \centering
   \caption{OpenMOC fission rate percent relative errors.}
   \label{tab:fiss-errors}
-  \begin{tabular}{l l r r}
+  \begin{tabular}{l l r r r}
   \toprule
-  \textbf{Benchmark} & \textbf{Metric} & \textbf{Null} & \textbf{Degenerate} \\
+  \textbf{Benchmark} & \textbf{Metric} & \textbf{Null} & \textbf{Degenerate} & \textbf{LNS} \\
   \midrule
-  \multirow{2}{*}{Assembly} & Max  & 0.380 & 0.315 \\
-                            & Mean & 0.074 & 0.079 \\
+  \multirow{2}{*}{Assembly} & Max  & 0.380 & 0.315 & 0.314 \\
+                            & Mean & 0.074 & 0.079 & 0.078 \\
   \midrule
-  \multirow{2}{*}{Colorset} & Max  & 0.764 & 0.602 \\
-                            & Mean & 0.178 & 0.138 \\
+  \multirow{2}{*}{Colorset} & Max  & 0.764 & 0.602 & 0.709 \\
+                            & Mean & 0.178 & 0.138 & 0.155 \\
   \bottomrule
 \end{tabular}
 \end{table}
 
-The spatial distributions of fission rate errors are plotted as heatmaps for each benchmark in \autoref{fig:fiss-errors}. The heatmaps illustrate systematic trends in the pin-wise fission errors which correlate with spatial heterogeneities in each benchmark. In particular, the fission rates are generally underpredicted for pins adjacent to a single CRGT, but overpredicted for pins adjacent to two CRGTs in the assembly. In addition, the errors are largest for pins along the inter-assembly and assembly-reflector interfaces for the colorset benchmark.
+%The spatial distributions of fission rate errors are plotted as heatmaps for each benchmark in \autoref{fig:fiss-errors}. The heatmaps illustrate systematic trends in the pin-wise fission errors which correlate with spatial heterogeneities in each benchmark. In particular, the fission rates are generally underpredicted for pins adjacent to a single CRGT, but overpredicted for pins adjacent to two CRGTs in the assembly. In addition, the errors are largest for pins along the inter-assembly and assembly-reflector interfaces for the colorset benchmark.
 
 %For the PWR benchmarks modeled here, the moderation provided by neighboring CRGTs and reflectors softens the flux for nearby fuel pins and should be modeled when collapsing pin-wise MGXS for high-fidelity multi-group transport calculations.
 
-\begin{figure*}[h!]
-\centering
-\begin{subfigure}{0.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{figures/assembly/fiss-null-errors}
-  \caption{}
-  \label{fig:assm-fiss-null-error}
-\end{subfigure}%
-\begin{subfigure}{0.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{figures/assembly/fiss-degenerate-errors}
-  \caption{}
-  \label{fig:assm-fiss-degen-error}
-\end{subfigure}
-\begin{subfigure}{0.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{figures/reflector/fiss-null-errors}
-  \caption{}
-  \label{fig:reflector-fiss-null-error}
-\end{subfigure}%
-\begin{subfigure}{0.45\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{figures/reflector/fiss-degenerate-errors}
-  \caption{}
-  \label{fig:reflector-fiss-degen-error}
-\end{subfigure}
-\caption{OpenMOC fission rate percent relative errors for the assembly (a) and colorset (b) benchmarks.}
-\label{fig:fiss-errors}
-\end{figure*}
+% FIXME: Need to either (a) plot fission rate errors for LNS or (b) remove the figure and instead point to the table of errors to say that the difference is small
+
+%\begin{figure*}[h!]
+%\centering
+%\begin{subfigure}{0.45\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/assembly/fiss-null-errors}
+%  \caption{}
+%  \label{fig:assm-fiss-null-error}
+%\end{subfigure}%
+%\begin{subfigure}{0.45\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/assembly/fiss-degenerate-errors}
+%  \caption{}
+%  \label{fig:assm-fiss-degen-error}
+%\end{subfigure}
+%\begin{subfigure}{0.45\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/reflector/fiss-null-errors}
+%  \caption{}
+%  \label{fig:reflector-fiss-null-error}
+%\end{subfigure}%
+%\begin{subfigure}{0.45\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/reflector/fiss-degenerate-errors}
+%  \caption{}
+%  \label{fig:reflector-fiss-degen-error}
+%\end{subfigure}
+%\caption{OpenMOC fission rate percent relative errors for the assembly (a) and colorset (b) benchmarks.}
+%\label{fig:fiss-errors}
+%\end{figure*}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -104,29 +106,31 @@ The OpenMOC energy-integrated pin-wise U-238 capture rates were compared to the 
   \centering
   \caption{OpenMOC U-238 capture rate percent relative errors.}
   \label{tab:capt-errors} 
-  \begin{tabular}{l l r r}
+  \begin{tabular}{l l r r r}
   \toprule
-  \textbf{Benchmark} & \textbf{Metric} & \textbf{Null} & \textbf{Degenerate} \\
+  \textbf{Benchmark} & \textbf{Metric} & \textbf{Null} & \textbf{Degenerate} & \textbf{LNS} \\
   \midrule
-  \multirow{2}{*}{Assembly} & Max  & -1.101 &  0.386 \\
-                            & Mean &  0.479 &  0.086 \\
+  \multirow{2}{*}{Assembly} & Max  & -1.101 &  0.386 & 0.290 \\
+                            & Mean &  0.479 &  0.086 & 0.076 \\
   \midrule
-  \multirow{2}{*}{Colorset} & Max  & -1.969 & -0.783 \\
-                            & Mean &  0.478 &  0.165 \\
+  \multirow{2}{*}{Colorset} & Max  & -1.969 & -0.783 & -1.964 \\
+                            & Mean &  0.478 &  0.165 & 0.236 \\
   \bottomrule
 \end{tabular}
 \end{table}
 
-The spatial distributions of capture rate errors are plotted as heatmaps for each benchmark in \autoref{fig:capt-errors}. The heatmaps illustrate systematic error trends in the pin-wise capture errors which correlate with spatial heterogeneities in each benchmark. The capture rate errors are most significant for pins adjacent to CRGTs and along the inter-assembly and assembly-reflector interfaces. In addition, the heatmaps illustrate how degenerate spatial homogenization scheme ``smooths'' the pin-wise errors as compared to the null scheme. In particular, the differential of the errors for pins near CRGTs and BPs, and along inter-assembly and assembly-reflector interfaces is substantially reduced when degenerate homogenization is applied. This underscores the importance of accounting for spatial heterogeneities -- such as the added moderation from CRGTs and reflectors -- when generating MGXS to predict U-238 capture and Pu-239 production in LWRs. The moderation provided by neighboring CRGTs and/or reflectors softens the local flux for nearby fuel pins and should be modeled when collapsing pin-wise MGXS for high-fidelity multi-group transport calculations. 
+The spatial distributions of capture rate errors are plotted as heatmaps for the assembly and colorset in~\autoref{fig:assm-capt-errors} and~\autoref{fig:reflector-capt-errors}, respectively. The heatmaps illustrate systematic error trends in the pin-wise capture errors which correlate with spatial heterogeneities in each benchmark. The capture rate errors are most significant for pins adjacent to CRGTs and along the inter-assembly and assembly-reflector interfaces. In addition, the heatmaps illustrate how degenerate spatial homogenization scheme ``smooths'' the pin-wise errors as compared to the null scheme. In particular, the differential of the errors for pins near CRGTs and BPs, and along inter-assembly and assembly-reflector interfaces is substantially reduced when degenerate homogenization is applied. This underscores the importance of accounting for spatial heterogeneities -- such as the added moderation from CRGTs and reflectors -- when generating MGXS to predict U-238 capture and Pu-239 production in LWRs. The moderation provided by neighboring CRGTs and/or reflectors softens the local flux for nearby fuel pins and should be modeled when collapsing pin-wise MGXS for high-fidelity multi-group transport calculations.
 
-\begin{figure*}[h!]
-\centering
+\clearpage
+
+\begin{figure}[H]
+  \centering 
 \begin{subfigure}{0.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{figures/assembly/capt-null-errors}
   \caption{}
   \label{fig:assm-capt-null-error}
-\end{subfigure}%
+\end{subfigure}
 \begin{subfigure}{0.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{figures/assembly/capt-degenerate-errors}
@@ -135,16 +139,64 @@ The spatial distributions of capture rate errors are plotted as heatmaps for eac
 \end{subfigure}
 \begin{subfigure}{0.45\textwidth}
   \centering
+  \includegraphics[width=\linewidth]{figures/assembly/capt-lns-errors}
+  \caption{}
+  \label{fig:assm-capt-lns-error}
+\end{subfigure}
+\caption{OpenMOC U-238 capture rate percent relative errors for the assembly with null (a), degenerate (b) and LNS (C) spatial homogenization.}
+\label{fig:assm-capt-errors}
+\end{figure}
+
+\begin{figure}[H]
+  \centering 
+\begin{subfigure}{0.45\textwidth}
+  \centering
   \includegraphics[width=\linewidth]{figures/reflector/capt-null-errors}
   \caption{}
   \label{fig:reflector-capt-null-error}
-\end{subfigure}%
+\end{subfigure}
 \begin{subfigure}{0.45\textwidth}
   \centering
   \includegraphics[width=\linewidth]{figures/reflector/capt-degenerate-errors}
   \caption{}
   \label{fig:reflector-capt-degen-error}
 \end{subfigure}
-\caption{OpenMOC U-238 capture rate percent relative errors for the assembly (a) and colorset (b) benchmarks.}
-\label{fig:capt-errors}
-\end{figure*}
+\begin{subfigure}{0.45\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{figures/reflector/capt-lns-errors}
+  \caption{}
+  \label{fig:reflector-capt-lns-error}
+\end{subfigure}
+\caption{OpenMOC U-238 capture rate percent relative errors for the colorset with null (a), degenerate (b) and LNS (C) spatial homogenization.}
+\label{fig:reflector-capt-errors}
+\end{figure}
+
+%\begin{figure*}[h!]
+%\centering
+%\begin{subfigure}{0.45\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/assembly/capt-null-errors}
+%  \caption{}
+%  \label{fig:assm-capt-null-error}
+%\end{subfigure}%
+%\begin{subfigure}{0.45\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/assembly/capt-degenerate-errors}
+%  \caption{}
+%  \label{fig:assm-capt-degen-error}
+%\end{subfigure}
+%\begin{subfigure}{0.45\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/reflector/capt-null-errors}
+%  \caption{}
+%  \label{fig:reflector-capt-null-error}
+%\end{subfigure}%
+%\begin{subfigure}{0.45\textwidth}
+%  \centering
+%  \includegraphics[width=\linewidth]{figures/reflector/capt-degenerate-errors}
+%  \caption{}
+%  \label{fig:reflector-capt-degen-error}
+%\end{subfigure}
+%\caption{OpenMOC U-238 capture rate percent relative errors for the assembly (a) and colorset (b) benchmarks.}
+%\label{fig:capt-errors}
+%\end{figure*}
