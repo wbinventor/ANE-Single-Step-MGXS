@@ -1,5 +1,6 @@
 data
 .DS_Store
+*~
 
 ## Core latex/pdflatex auxiliary files:
 *.spl
