@@ -39,13 +39,6 @@
 \usepackage{algorithm} % Provides algorithm environment
 \usepackage{algorithmicx}       % Provides algorithmic block
 \usepackage{algpseudocode}      % Option of algorithmicx package
-\renewcommand{\thealgorithm}{\thechapter-\arabic{algorithm}}
-\newcommand\Algphase[1]{%
-\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\columnwidth}{0.4pt}%
-\Statex\hspace*{-\algorithmicindent}{#1}%
-\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\columnwidth}{0.4pt}%
-}
-\newcommand{\algrule}[1][.4pt]{\par\vskip.5\baselineskip\hrule height #1\par\vskip.5\baselineskip}
 
 \newcommand{\code}[2]{
   \subsection*{#1}
