@@ -86,7 +86,7 @@ In order to formally express the track density weighted-average approach, it is 
 
 \noindent where the angle bracket notation $\langle \cdot , \cdot \rangle$ represents an inner product over incoming and/or outgoing energy, space, and angle. In particular, subscript $k$ refers to a volume integral over $V_{k}$ for some region of space $k$ for spatial homogenization, and subscript $g$ corresponds to an integral over energies with $E \in [E_{g}, E_{g-1}]$ for energy condensation. The inner product of the spatially-homogenized and energy-integrated angular flux with unity is simplified as $\langle \psi \rangle_{k,g} \equiv \langle \psi, \mathbb{1} \rangle_{k,g}$ in \autoref{eqn:general-micro}.
 
-In this context, the index $k$ of $K$ total spatial zones refers to a particular instance of a fuel pin. The LNS algorithm represents a function $S(k)$ which assigns an identifier $m$ to each fuel pin instance based on its neighbors. The set $\mathbb{S}_{m}$ encapsulates all instances $k$ with the same LNS identifier:
+In this context, the index $k$ of $K$ total spatial zones refers to a particular instance of a fuel pin. The LNS algorithm represents a function $S(k)$ which assigns an identifier $m$ to each fuel pin instance based on its neighbors. The set $\mathbb{S}_{m}$ encapsulates all instances $k$ with the same LNS identifier $m$:
 
 \begin{equation}
 \label{eqn:lns-set}
