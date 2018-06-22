@@ -113,7 +113,7 @@ Flat source region spatial discretization meshes were applied to both benchmarks
 \subsection{Verification Metrics}
 \label{subsec:metrics}
 
-A series of OpenMC simulations was used to calculate reference eigenvalues, pin-wise fission rates, and pin-wise U-238 capture rates for both benchmarks. The OpenMC ``combined'' eigenvalue estimator is reported along with the associated 1-sigma uncertainty of one pcm for both benchmarks in~\autoref{tab:keff-reference}.
+A series of OpenMC simulations was used to calculate reference eigenvalues, pin-wise fission rates, and pin-wise U-238 capture rates for both benchmarks. A factor of 10$\times$ more particle histories per batch (\textit{i.e.}, 10$^7$ per batch) were used for the reference calculations relative to the OpenMC simulations used to generate MGXS. The OpenMC ``combined'' eigenvalue estimator is reported along with the associated 1-sigma uncertainty of one pcm for both benchmarks in~\autoref{tab:keff-reference}.
 
 % The reference solutions were computed with 100 inactive and 900 active batches of 10$^7$ particle histories per batch.
 
