@@ -3,7 +3,7 @@
 \label{sec:pin-wise-shielding}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This paper introduces three spatial homogenization schemes to model inter-pin spatial self-shielding effects with varying degrees of granularity. Although all spatial zones may experience spatial self-shielding, this paper only models the impact of spatial self-shielding on MGXS in fissile regions. Furthermore, this paper does not treat intra-pin spatial self-shielding (\textit{i.e.}, spatial self-shielding within a fuel pin) and instead assigns a single MGXS to all discretized spatial zones within each fuel pin. This constraint was made to directly isolate and quantify approximation error resulting from inter-pin spatial self-shielding effects. The null, degenerate and Local Neighbor Symmetry spatial homogenization schemes are introduced in \autoref{subsec:homogenize-null}, \autoref{subsec:homogenize-degenerate} and \autoref{subsec:homogenize-lns}, respectively.
+This paper introduces three spatial homogenization schemes to model inter-pin spatial self-shielding effects with varying degrees of granularity. Although all spatial zones may experience spatial self-shielding, this paper only models the impact of spatial self-shielding on MGXS in fissile regions. Furthermore, this paper does not treat intra-pin spatial self-shielding (\textit{i.e.}, spatial self-shielding within a fuel pin) and instead assigns a single MGXS to all discretized spatial zones within each fuel pin. This constraint was made to directly isolate and quantify approximation errors resulting from inter-pin spatial self-shielding effects. The null, degenerate and Local Neighbor Symmetry spatial homogenization schemes are introduced in \autoref{subsec:homogenize-null}, \autoref{subsec:homogenize-degenerate} and \autoref{subsec:homogenize-lns}, respectively.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -33,7 +33,7 @@ The Local Neighbor Symmetry (LNS) spatial homogenization scheme uses a determini
 \subsubsection{Local Neighbor Symmetry Identification}
 \label{subsubsec:homogenize-lns}
 
-The OpenCG code \citep{boyd2015opencg} was created to simplify the process of creating and transferring data mapped to combinatorial geometries for the OpenMC and OpenMOC neutron transport codes. One of the unique algorithms implemented in OpenCG is known as Local Neighbor Symmetry identification. The LNS algorithm systematically analyzes a combinatorial geometry (CG) tree data structure to identify neighbor cells, or pairs of cells which are adjacent to one another. The neighbor cells are assembled into a heuristic which groups like spatial zones with common LNS identifiers. A brief overview of the algorithm is given here; the interested reader is referred to \citep{boyd2015opencg} for a more detailed discussion.
+The OpenCG code \citep{boyd2015opencg} was created to simplify the process of creating and transferring data mapped to combinatorial geometries for the OpenMC and OpenMOC neutron transport codes. One of the unique algorithms implemented in OpenCG is known as Local Neighbor Symmetry identification. The LNS algorithm systematically analyzes a combinatorial geometry (CG) tree data structure to identify neighbor cells, or pairs of cells which are adjacent to one another. The neighbor cells are assembled into a heuristic which groups similar spatial zones with common LNS identifiers. A brief overview of the algorithm is given here; the interested reader is referred to \citep{boyd2015opencg} for a more detailed discussion.
 
 The LNS algorithm identifies the unique symmetry for the path to a region in a combinatorial geometry as described in \autoref{alg:lns}. The LNS algorithm performs a breadth-first search (BFS) to find neighbors on each level of the CG tree. For example, BFS is used to find neighbor cells for a particular cell within a universe. Similarly, BFS is used to find neighbor universes adjacent to a particular lattice cell. The neighbor cells and universes on each of the $k$ levels of a CG tree are connected to form a $k$-partite graph as depicted in \autoref{fig:lns-k-partite-graph}. Red nodes correspond to the universes/cells encapsulating a region of interest, green nodes correspond to the neighbors of that region, and gray nodes correspond to universes/cells which are not neighbors. Red and green nodes at each level are combined into an argument for a hash function to generate a LNS identifier (\textit{e.g.}, a non-negative integer) for the particular region represented by the path.
 
@@ -68,23 +68,23 @@ The LNS algorithm identifies the unique symmetry for the path to a region in a c
 \end{figure*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Track Density-Weighted MGXS}
+\subsubsection{Flux-Weighted MGXS}
 \label{subsubsec:lns-math}
 
-Like the degenerate and null schemes, LNS spatial homogenization scheme uses a single MC calculation of the complete heterogeneous geometry to generate MGXS for all materials. The MGXS are averaged across all pin instances with the same LNS identifier. Like the null and degenerate schemes, spatial self-shielding effects experienced by non-fissile spatial zones are averaged across the entire geometry. 
+Like the degenerate and null schemes, the LNS spatial homogenization scheme uses a single MC calculation of the complete heterogeneous geometry to generate MGXS for all materials. The MGXS are averaged across all pin instances with the same LNS identifier. Like the null and degenerate schemes, spatial self-shielding effects experienced by non-fissile spatial zones are averaged across the entire geometry. 
 
-The LNS spatially-homogenized MGXS are computed using \textit{track density-weighting} rather than as the geometric average of the MGXS in each pin instance. The reaction rates and fluxes for each fuel pin instance with the same LNS identifier are summed together and then divided to compute an average MGXS weighted by the relative particle track density in each pin instance. Unlike a geometric average of MGXS across pin instances, the track density-weighted average MGXS preserve global reactivity.
+The LNS spatially-homogenized MGXS are computed as a flux-weighted average rather than as the geometric average of the MGXS in each pin instance. The reaction rates and fluxes for each fuel pin instance with the same LNS identifier are summed together and then divided to compute an average MGXS weighted by the relative flux in each pin instance. Unlike a geometric average of MGXS across pin instances, the flux-weighted average MGXS preserve global reactivity.
 
 % The MGXS were tallied separately for each instance of fissile material zones using OpenMC's distributed cell tallies. 
 
-In order to formally express the track density weighted-average approach, it is useful to first define the microscopic MGXS $\hat{\sigma}_{x,i,k,g}$ estimated from MC tallies for reaction $x$, nuclide $i$, spatial zone $k$ and energy group $g$,
+In order to formally express the flux weighted-average approach, it is useful to first define the microscopic MGXS $\hat{\sigma}_{x,i,k,g}$ estimated from MC tallies for reaction $x$, nuclide $i$, spatial zone $k$ and energy group $g$,
 
 \begin{equation}
 \label{eqn:general-micro}
 \hat{\sigma}_{x,i,k,g} = \frac{\langle \sigma_{x,i}, \psi \rangle_{k,g}}{\langle \psi \rangle_{k,g}}
 \end{equation}
 
-\noindent where the angle bracket notation $\langle \cdot , \cdot \rangle$ represents an inner product over incoming and/or outgoing energy, space, and angle. In particular, subscript $k$ refers to a volume integral over $V_{k}$ for some region of space $k$ for spatial homogenization, and subscript $g$ corresponds to an integral over energies with $E \in [E_{g}, E_{g-1}]$ for energy condensation. The inner product of the spatially-homogenized and energy-integrated angular flux with unity is simplified as $\langle \psi \rangle_{k,g} \equiv \langle \psi, \mathbb{1} \rangle_{k,g}$ in \autoref{eqn:general-micro}.
+\noindent where the angle bracket notation $\langle \cdot , \cdot \rangle$ represents an inner product over incoming and/or outgoing energy, space, and angle. In particular, subscript $k$ refers to a volume integral over $V_{k}$ for some region of space $k$ for spatial homogenization, and subscript $g$ corresponds to an integral over energies with $E \in [E_{g}, E_{g-1}]$ for energy condensation. The inner product of the spatially-homogenized and energy-integrated scalar flux with unity is simplified as $\langle \psi \rangle_{k,g} \equiv \langle \psi, \mathbb{1} \rangle_{k,g}$ in \autoref{eqn:general-micro}.
 
 In this context, the index $k$ of $K$ total spatial zones refers to a particular instance of a fuel pin. The LNS algorithm represents a function $S(k)$ which assigns an identifier $m$ to each fuel pin instance based on its neighbors. The set $\mathbb{S}_{m}$ encapsulates all instances $k$ with the same LNS identifier $m$:
 
@@ -93,11 +93,11 @@ In this context, the index $k$ of $K$ total spatial zones refers to a particular
 \mathbb{S}_{m} = \left\{1 \le k \le K \;\;\; : \;\;\; S(k) = m\right\}
 \end{equation}
 
-LNS homogenization computes a single set of MGXS for the fuel pin instances in each set $k \in \mathbb{S}_{m}$ classified by the LNS algorithm. This is a specialization of \autoref{eqn:general-micro} with track density-weighted summations of the reaction rates and flux tallies in each pin instance:
+LNS homogenization computes a single set of MGXS for the fuel pin instances in each set $k \in \mathbb{S}_{m}$ classified by the LNS algorithm. This is a specialization of \autoref{eqn:general-micro} with flux-weighted summations of the reaction rates and flux tallies in each pin instance:
 
 \begin{equation}
 \label{eqn:lns-micro}
 \hat{\sigma}_{x,i,m,g} = \frac{\displaystyle\sum\limits_{k=1}^{K}\mathbb{1}_{\mathbb{S}_{m}}(k) \langle \sigma_{x,i}, \psi \rangle_{k,g}}{\displaystyle\sum\limits_{k=1}^{K}\mathbb{1}_{\mathbb{S}_{m}}(k) \langle \psi \rangle_{k,g}}
 \end{equation}
 
-\noindent where the indicator function $\mathbb{1}_{\mathbb{S}_{m}}(k)$ is equal to 1 if $k \in \mathbb{S}_{m}$ and 0 otherwise. The track density-weighted average is similarly applied to the MC tallies for each type of MGXS, including total, capture and fission production cross sections, scattering matrices and the fission spectrum.
+\noindent where the indicator function $\mathbb{1}_{\mathbb{S}_{m}}(k)$ is equal to 1 if $k \in \mathbb{S}_{m}$ and 0 otherwise. The flux-weighted average is similarly applied to the MC tallies for each type of MGXS, including total, capture and fission production cross sections, scattering matrices and the fission spectrum.
