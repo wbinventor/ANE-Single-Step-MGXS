@@ -73,7 +73,7 @@ The LNS algorithm identifies the unique symmetry for the path to a region in a c
 
 Like the degenerate and null schemes, the LNS spatial homogenization scheme uses a single MC calculation of the complete heterogeneous geometry to generate MGXS for all materials. The MGXS are averaged across all pin instances with the same LNS identifier. Like the null and degenerate schemes, spatial self-shielding effects experienced by non-fissile spatial zones are averaged across the entire geometry. 
 
-The LNS spatially-homogenized MGXS are computed as a flux-weighted average rather than as the geometric average of the MGXS in each pin instance. The reaction rates and fluxes for each fuel pin instance with the same LNS identifier are summed together and then divided to compute an average MGXS weighted by the relative flux in each pin instance. Unlike a geometric average of MGXS across pin instances, the flux-weighted average MGXS preserve global reactivity.
+The LNS spatially-homogenized MGXS are computed as a flux-weighted average rather than as the geometric average of the MGXS in each pin instance. The reaction rates and fluxes for each fuel pin instance with the same LNS identifier are summed together and then divided to compute an average MGXS weighted by the relative flux in each pin instance. Unlike a geometric average of MGXS across pin instances, the flux-weighted average MGXS preserve global reaction rates.
 
 % The MGXS were tallied separately for each instance of fissile material zones using OpenMC's distributed cell tallies. 
 
